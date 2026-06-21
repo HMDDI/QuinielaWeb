@@ -2,7 +2,7 @@ name: Deploy to Firebase Hosting on merge
 on:
   push:
     branches:
-      - master # Cambia por el nombre de tu rama principal si es diferente
+      - Master # Cambia por el nombre de tu rama principal si es diferente
 
 jobs:
   build_and_deploy:
