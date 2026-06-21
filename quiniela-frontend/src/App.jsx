@@ -69,7 +69,11 @@ export default function App() {
     });
     return () => unsub();
   }, []);
-  
+
+  const selectedUser = usuarios.find(u => u.id === selectedUserId);
+  const pronosticosUsuario = selectedUser?.pronosticos || [];
+  const filteredUsers = usuarios.filter(u => u.nombre?.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
       <header className="bg-emerald-600 text-white shadow-md sticky top-0 z-10">
