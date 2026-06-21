@@ -70,7 +70,7 @@ export default function App() {
     
     // 🔴 Lógica real de Firebase (Descomentar en tu proyecto local):
     
-    const q = query(collection(db, 'pronosticos'), where('usuario_id', '==', usuario.id));
+    const q = query(collection(db, 'partidos'), where('usuario_id', '==', usuario.id));
     const snapshot = await getDocs(q);
     const pronosticosData = snapshot.docs.map(doc => doc.data());
     // Aquí idealmente cruzarías con la colección 'partidos' para obtener los nombres de los equipos
