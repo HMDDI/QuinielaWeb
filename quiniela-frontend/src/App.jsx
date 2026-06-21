@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Trophy, Search, ChevronLeft, User, Activity, Medal, CheckCircle2, XCircle, MinusCircle } from 'lucide-react';
 
 // ============================================================================
-// 🔧 CONFIGURACIÓN DE FIREBASE (Para cuando lo lleves a tu proyecto local)
+// 🔧 CONFIGURACIÓN DE FIREBASE (Para cuando lo lleves a tu proyecto local) 
 // ============================================================================
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, query, orderBy, onSnapshot, where, getDocs } from 'firebase/firestore';
