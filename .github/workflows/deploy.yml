@@ -9,18 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Install dependencies
-        run: npm install # Cambiado de "npm ci" a "npm install"
-        working-directory: ./quiniela-frontend
-        
-      - name: Build project
-        run: npm run build --if-present
-        working-directory: ./quiniela-frontend
-        
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINIELA_WORLDCUP_43262 }}
           channelId: live
           projectId: quiniela-worldcup-43262
+
