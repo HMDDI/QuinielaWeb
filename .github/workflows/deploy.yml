@@ -11,12 +11,12 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Install dependencies
-        run: npm ci
-        working-directory: ./quiniela-backend
+        run: npm install # Cambiado de "npm ci" a "npm install"
+        working-directory: ./quiniela-frontend
         
       - name: Build project
         run: npm run build --if-present
-        working-directory: ./quiniela-backend
+        working-directory: ./quiniela-frontend
         
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
