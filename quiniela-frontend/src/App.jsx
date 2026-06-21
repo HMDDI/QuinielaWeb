@@ -7,38 +7,18 @@ import { Trophy, Search, ChevronLeft, User, Activity, Medal, CheckCircle2, XCirc
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, query, orderBy, onSnapshot, where, getDocs } from 'firebase/firestore';
 
-// Pega aquí la configuración de tu proyecto Firebase (la encuentras en Project Settings)
+// Configuración de tu proyecto Firebase con los valores directos
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
+  authDomain: "quiniela-worldcup-43262.firebaseapp.com",
+  projectId: "quiniela-worldcup-43262",
+  storageBucket: "quiniela-worldcup-43262.appspot.com",
+  messagingSenderId: "25784077559",
+  appId: "1:25784077559:web:b9eb933e906725929517f2"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-// ============================================================================
-// 🗂️ DATOS DE PRUEBA (Solo para la previsualización de esta interfaz)
-// ============================================================================
-const MOCK_USERS = [
-  { id: 'carlos_perez', nombre: 'Carlos Perez', puntos_totales: 45 },
-  { id: 'maria_sanchez', nombre: 'Maria Sanchez', puntos_totales: 42 },
-  { id: 'luis_moran', nombre: 'Luis Moran', puntos_totales: 38 },
-  { id: 'juan_guisado', nombre: 'Juan Guisado', puntos_totales: 35 },
-  { id: 'lilibeth_copete', nombre: 'Lilibeth Copete', puntos_totales: 30 },
-  { id: 'wottmar', nombre: 'Wottmar', puntos_totales: 28 },
-  { id: 'marcos', nombre: 'Marcos', puntos_totales: 25 }
-];
-
-const MOCK_PRONOSTICOS = [
-  { id: 1, partido: 'MEXICO VS SUDAFRICA', local_prono: 2, visita_prono: 1, local_real: 2, visita_real: 1, puntos: 5, finalizado: true },
-  { id: 2, partido: 'COREA DEL SUR VS REP. CHECA', local_prono: 1, visita_prono: 1, local_real: 1, visita_real: 0, puntos: 0, finalizado: true },
-  { id: 3, partido: 'CANADA VS BOSNIA', local_prono: 2, visita_prono: 0, local_real: 3, visita_real: 1, puntos: 3, finalizado: true },
-  { id: 4, partido: 'ESTADOS UNIDOS VS PARAGUAY', local_prono: 1, visita_prono: 2, local_real: null, visita_real: null, puntos: 0, finalizado: false }
-];
 
 // ============================================================================
 // 📱 COMPONENTE PRINCIPAL DE LA APLICACIÓN
@@ -52,34 +32,35 @@ export default function App() {
 
   // Efecto para cargar la tabla de posiciones al iniciar
   useEffect(() => {
-    // 🔴 Lógica real de Firebase (Descomentar en tu proyecto local):
-    
     const q = query(collection(db, 'usuarios'), orderBy('puntos_totales', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const usersData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setUsuarios(usersData);
       setLoading(false);
+    }, (error) => {
+      console.error("Error obteniendo usuarios:", error);
+      setLoading(false);
     });
     return () => unsubscribe();
-
   }, []);
 
   // Función para ver el detalle de un usuario
   const handleVerDetalle = async (usuario) => {
     setSelectedUser(usuario);
     
-    // 🔴 Lógica real de Firebase (Descomentar en tu proyecto local):
-    
-    const q = query(collection(db, 'partidos'), where('usuario_id', '==', usuario.id));
-    const snapshot = await getDocs(q);
-    const pronosticosData = snapshot.docs.map(doc => doc.data());
-    // Aquí idealmente cruzarías con la colección 'partidos' para obtener los nombres de los equipos
-    setPronosticosUsuario(pronosticosData);
+    try {
+      const q = query(collection(db, 'partidos'), where('usuario_id', '==', usuario.id));
+      const snapshot = await getDocs(q);
+      const pronosticosData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setPronosticosUsuario(pronosticosData);
+    } catch (error) {
+      console.error("Error obteniendo pronósticos:", error);
+    }
   };
 
   // Filtrado de búsqueda
   const filteredUsers = usuarios.filter(u => 
-    u.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    u.nombre?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
