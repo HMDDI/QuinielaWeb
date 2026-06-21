@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, Search, ChevronLeft, User, Activity, Medal, CheckCircle2, XCircle, MinusCircle, Save } from 'lucide-react';
-
-// ============================================================================
-// 🔧 CONFIGURACIÓN DE FIREBASE
-// ============================================================================
+import { Trophy, Search, ChevronLeft, User, Activity, Medal, CheckCircle2, XCircle, MinusCircle } from 'lucide-react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, onSnapshot, doc, updateDoc } from 'firebase/firestore';
 
@@ -19,16 +15,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// ============================================================================
-// 🧮 LÓGICA DE CÁLCULO DE PUNTOS
-// ============================================================================
+// LÓGICA CORREGIDA CON TUS CAMPOS:
+// estado == "finalizado"
+// goles_local / goles_visitante (reales)
 const calcularPuntos = (prono) => {
-  if (!prono.finalizado || prono.local_real === undefined || prono.visita_real === undefined) return 0;
+  if (prono.estado !== "finalizado") return 0;
 
-  const pLocal = Number(prono.local_prono);
+  const pLocal = Number(prono.local_prono); // Asumiendo que guardas tu pronóstico así
   const pVisita = Number(prono.visita_prono);
-  const rLocal = Number(prono.local_real);
-  const rVisita = Number(prono.visita_real);
+  const rLocal = Number(prono.goles_local);
+  const rVisita = Number(prono.goles_visitante);
 
   if (pLocal === rLocal && pVisita === rVisita) return 5;
   
@@ -39,61 +35,41 @@ const calcularPuntos = (prono) => {
   return 0;
 };
 
-// ============================================================================
-// 📱 COMPONENTE PRINCIPAL
-// ============================================================================
 export default function App() {
   const [usuarios, setUsuarios] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedUserId, setSelectedUserId] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedUserId, setSelectedUserId] = useState(null);
 
-  // Función para guardar puntos en Firestore
   const guardarPuntosEnFirestore = async (partidoId, puntos) => {
     try {
-      const docRef = doc(db, 'partidos', partidoId);
-      await updateDoc(docRef, { puntos: puntos });
-    } catch (error) {
-      console.error("Error al guardar puntos en Firestore:", error);
-    }
+      await updateDoc(doc(db, 'partidos', partidoId), { puntos: puntos });
+    } catch (e) { console.error(e); }
   };
 
   useEffect(() => {
-    const unsubscribeUsuarios = onSnapshot(collection(db, 'usuarios'), (snapshotUsuarios) => {
-      const usersData = snapshotUsuarios.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      
-      const unsubscribePartidos = onSnapshot(collection(db, 'partidos'), (snapshotPartidos) => {
-        const partidosData = snapshotPartidos.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const unsub = onSnapshot(collection(db, 'usuarios'), (snapU) => {
+      const users = snapU.docs.map(d => ({ id: d.id, ...d.data() }));
+      const unsubP = onSnapshot(collection(db, 'partidos'), (snapP) => {
+        const partidos = snapP.docs.map(d => ({ id: d.id, ...d.data() }));
         
-        const usuariosCalculados = usersData.map(user => {
-          const susPartidos = partidosData.filter(p => p.usuario_id === user.id);
-          
-          const pronosticosConPuntos = susPartidos.map(prono => {
-            const puntosCalculados = calcularPuntos(prono);
-            // Si los puntos en DB no coinciden con los calculados, los actualizamos
-            if (prono.puntos !== puntosCalculados) {
-              guardarPuntosEnFirestore(prono.id, puntosCalculados);
-            }
-            return { ...prono, puntos: puntosCalculados };
+        const conPuntos = users.map(u => {
+          const misPartidos = partidos.filter(p => p.usuario_id === u.id);
+          const conP = misPartidos.map(p => {
+            const pts = calcularPuntos(p);
+            if (p.estado === "finalizado" && p.puntos !== pts) guardarPuntosEnFirestore(p.id, pts);
+            return { ...p, puntos: pts };
           });
-
-          const puntosTotales = pronosticosConPuntos.reduce((sum, p) => sum + p.puntos, 0);
-          return { ...user, pronosticos: pronosticosConPuntos, puntos_totales: puntosTotales };
+          return { ...u, pronosticos: conP, puntos_totales: conP.reduce((a, b) => a + (b.puntos || 0), 0) };
         });
 
-        usuariosCalculados.sort((a, b) => b.puntos_totales - a.puntos_totales);
-        setUsuarios(usuariosCalculados);
+        setUsuarios(conPuntos.sort((a, b) => b.puntos_totales - a.puntos_totales));
         setLoading(false);
       });
-      return () => unsubscribePartidos();
+      return () => unsubP();
     });
-    return () => unsubscribeUsuarios();
+    return () => unsub();
   }, []);
-
-  const selectedUser = usuarios.find(u => u.id === selectedUserId);
-  const pronosticosUsuario = selectedUser?.pronosticos || [];
-  const filteredUsers = usuarios.filter(u => u.nombre?.toLowerCase().includes(searchTerm.toLowerCase()));
-
+  
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
       <header className="bg-emerald-600 text-white shadow-md sticky top-0 z-10">
