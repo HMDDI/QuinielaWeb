@@ -2,23 +2,62 @@ import React, { useState, useEffect } from 'react';
 import { Trophy, Search, ChevronLeft, User, Activity, Medal, CheckCircle2, XCircle, MinusCircle } from 'lucide-react';
 
 // ============================================================================
-// 🔧 CONFIGURACIÓN DE FIREBASE (Para cuando lo lleves a tu proyecto local) 
+// 🔧 CONFIGURACIÓN DE FIREBASE
 // ============================================================================
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, query, orderBy, onSnapshot, where, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, onSnapshot } from 'firebase/firestore';
 
-// Configuración de tu proyecto Firebase con los valores directos
+// Pega aquí la configuración de tu proyecto Firebase (la encuentras en Project Settings)
 const firebaseConfig = {
-  apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
-  authDomain: "quiniela-worldcup-43262.firebaseapp.com",
-  projectId: "quiniela-worldcup-43262",
-  storageBucket: "quiniela-worldcup-43262.appspot.com",
-  messagingSenderId: "25784077559",
-  appId: "1:25784077559:web:b9eb933e906725929517f2"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+// ============================================================================
+// 🧮 LÓGICA DE CÁLCULO DE PUNTOS
+// ============================================================================
+const calcularPuntos = (prono) => {
+  // Si el partido no ha finalizado o faltan resultados reales, 0 puntos
+  if (
+    !prono.finalizado || 
+    prono.local_real === undefined || prono.local_real === null || prono.local_real === "" ||
+    prono.visita_real === undefined || prono.visita_real === null || prono.visita_real === ""
+  ) {
+    return 0;
+  }
+
+  const pLocal = Number(prono.local_prono);
+  const pVisita = Number(prono.visita_prono);
+  const rLocal = Number(prono.local_real);
+  const rVisita = Number(prono.visita_real);
+
+  // 1. Marcador Exacto (5 puntos)
+  if (pLocal === rLocal && pVisita === rVisita) {
+    return 5;
+  }
+
+  // 2. Acertó Ganador o Empate (3 puntos)
+  const diffProno = pLocal - pVisita;
+  const diffReal = rLocal - rVisita;
+  
+  if (
+    (diffProno > 0 && diffReal > 0) || // Local gana
+    (diffProno < 0 && diffReal < 0) || // Visita gana
+    (diffProno === 0 && diffReal === 0) // Empate
+  ) {
+    return 3;
+  }
+
+  // 3. Falló (0 puntos)
+  return 0;
+};
 
 // ============================================================================
 // 📱 COMPONENTE PRINCIPAL DE LA APLICACIÓN
@@ -26,39 +65,66 @@ const db = getFirestore(app);
 export default function App() {
   const [usuarios, setUsuarios] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [pronosticosUsuario, setPronosticosUsuario] = useState([]);
+  
+  // En lugar de guardar todo el usuario, guardamos solo el ID para que los datos 
+  // del detalle se actualicen solos cuando cambie la base de datos
+  const [selectedUserId, setSelectedUserId] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Efecto para cargar la tabla de posiciones al iniciar
+  // Efecto para cargar y calcular TODO en tiempo real
   useEffect(() => {
-    const q = query(collection(db, 'usuarios'), orderBy('puntos_totales', 'desc'));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const usersData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setUsuarios(usersData);
-      setLoading(false);
+    // 1. Escuchamos los usuarios
+    const unsubscribeUsuarios = onSnapshot(collection(db, 'usuarios'), (snapshotUsuarios) => {
+      const usersData = snapshotUsuarios.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      
+      // 2. Escuchamos todos los partidos
+      const unsubscribePartidos = onSnapshot(collection(db, 'partidos'), (snapshotPartidos) => {
+        const partidosData = snapshotPartidos.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        
+        // 3. Unimos los datos: asignamos los partidos a su usuario y calculamos los puntos
+        const usuariosCalculados = usersData.map(user => {
+          const susPartidos = partidosData.filter(p => p.usuario_id === user.id);
+          
+          // Evaluamos partido por partido
+          const pronosticosConPuntos = susPartidos.map(prono => ({
+            ...prono,
+            puntos: calcularPuntos(prono)
+          }));
+
+          // Sumamos todos los puntos para sacar el puntaje global
+          const puntosTotales = pronosticosConPuntos.reduce((sum, p) => sum + p.puntos, 0);
+
+          return {
+            ...user,
+            pronosticos: pronosticosConPuntos,
+            puntos_totales: puntosTotales
+          };
+        });
+
+        // 4. Ordenamos la tabla de mayor a menor puntaje
+        usuariosCalculados.sort((a, b) => b.puntos_totales - a.puntos_totales);
+        
+        setUsuarios(usuariosCalculados);
+        setLoading(false);
+      }, (error) => {
+        console.error("Error obteniendo partidos:", error);
+        setLoading(false);
+      });
+
+      return () => unsubscribePartidos();
     }, (error) => {
       console.error("Error obteniendo usuarios:", error);
       setLoading(false);
     });
-    return () => unsubscribe();
+
+    return () => unsubscribeUsuarios();
   }, []);
 
-  // Función para ver el detalle de un usuario
-  const handleVerDetalle = async (usuario) => {
-    setSelectedUser(usuario);
-    
-    try {
-      const q = query(collection(db, 'partidos'), where('usuario_id', '==', usuario.id));
-      const snapshot = await getDocs(q);
-      const pronosticosData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setPronosticosUsuario(pronosticosData);
-    } catch (error) {
-      console.error("Error obteniendo pronósticos:", error);
-    }
-  };
+  // Variables calculadas para la vista de detalle
+  const selectedUser = usuarios.find(u => u.id === selectedUserId);
+  const pronosticosUsuario = selectedUser?.pronosticos || [];
 
-  // Filtrado de búsqueda
+  // Filtrado de búsqueda en la tabla
   const filteredUsers = usuarios.filter(u => 
     u.nombre?.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -75,7 +141,7 @@ export default function App() {
           </div>
           {selectedUser && (
             <button 
-              onClick={() => setSelectedUser(null)}
+              onClick={() => setSelectedUserId(null)}
               className="flex items-center gap-1 text-sm font-medium bg-emerald-700 hover:bg-emerald-800 px-3 py-1.5 rounded-full transition-colors"
             >
               <ChevronLeft className="w-4 h-4" /> Volver
@@ -122,7 +188,7 @@ export default function App() {
                 {filteredUsers.map((user, index) => (
                   <li 
                     key={user.id}
-                    onClick={() => handleVerDetalle(user)}
+                    onClick={() => setSelectedUserId(user.id)}
                     className="px-4 py-4 flex items-center justify-between hover:bg-emerald-50 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-3">
