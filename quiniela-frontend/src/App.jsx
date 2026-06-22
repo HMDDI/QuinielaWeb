@@ -6,37 +6,22 @@ import {
 
 import { initializeApp } from 'firebase/app';
 import { 
-  getFirestore, collection, onSnapshot, 
+  getFirestore, collection, query, orderBy, onSnapshot, 
   getDocs, doc, updateDoc 
 } from 'firebase/firestore';
-import { getAuth, signInAnonymously } from 'firebase/auth';
 
+// Configuración de Firebase simplificada para evitar errores de importación
 const firebaseConfig = {
-  apiKey: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).apiKey : "",
-  authDomain: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).authDomain : "",
-  projectId: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).projectId : "",
-  storageBucket: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).storageBucket : "",
-  messagingSenderId: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).messagingSenderId : "",
-  appId: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).appId : ""
+  apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
+  authDomain: "quiniela-worldcup-43262.firebaseapp.com",
+  projectId: "quiniela-worldcup-43262",
+  storageBucket: "quiniela-worldcup-43262.appspot.com",
+  messagingSenderId: "25784077559",
+  appId: "1:25784077559:web:b9eb933e906725929517f2"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);
-
-const MOCK_USERS = [
-  { id: 'carlos_perez', nombre: 'Carlos Perez (Simulado)', puntos_totales: 45 },
-  { id: 'maria_sanchez', nombre: 'Maria Sanchez (Simulado)', puntos_totales: 42 },
-  { id: 'luis_moran', nombre: 'Luis Moran (Simulado)', puntos_totales: 38 },
-  { id: 'juan_guisado', nombre: 'Juan Guisado (Simulado)', puntos_totales: 35 }
-];
-
-const MOCK_PRONOSTICOS = [
-  { id: '1', partido: 'MEXICO VS SUDAFRICA', local_prono: 2, visita_prono: 1, local_real: 2, visita_real: 1, puntos: 5, finalizado: true },
-  { id: '2', partido: 'COREA DEL SUR VS REP. CHECA', local_prono: 1, visita_prono: 1, local_real: 1, visita_real: 0, puntos: 0, finalizado: true },
-  { id: '3', partido: 'CANADA VS BOSNIA', local_prono: 2, visita_prono: 0, local_real: 3, visita_real: 1, puntos: 3, finalizado: true },
-  { id: '4', partido: 'ESTADOS UNIDOS VS PARAGUAY', local_prono: 1, visita_prono: 2, local_real: null, visita_real: null, puntos: 0, finalizado: false }
-];
 
 export default function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -47,29 +32,9 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [loadingPronos, setLoadingPronos] = useState(false);
   const [connectionMode, setConnectionMode] = useState('conectando'); 
-  const [user, setUser] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    const initAuth = async () => {
-      try {
-        await signInAnonymously(auth);
-      } catch (err) {
-        setConnectionMode('fallback');
-        setLoading(false);
-      }
-    };
-    initAuth();
-
-    const unsubscribeAuth = auth.onAuthStateChanged((currentUser) => {
-      setUser(currentUser);
-    });
-
-    return () => unsubscribeAuth();
-  }, []);
-
-  useEffect(() => {
-    if (!user) return;
-
     let isMounted = true;
     let unsubscribeUsuarios = () => {};
     let unsubscribePartidos = () => {};
@@ -85,9 +50,9 @@ export default function App() {
           if (!snapU.empty) {
             const usersData = snapU.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-            const usuariosCalculados = await Promise.all(usersData.map(async (userDoc) => {
+            const usuariosCalculados = await Promise.all(usersData.map(async (user) => {
               try {
-                const pronosSnap = await getDocs(collection(db, 'usuarios', userDoc.id, 'pronosticos'));
+                const pronosSnap = await getDocs(collection(db, 'usuarios', user.id, 'pronosticos'));
                 const pronosticos = pronosSnap.docs.map(d => d.data());
 
                 let totalPuntos = 0;
@@ -105,26 +70,26 @@ export default function App() {
                   }
                 });
 
-                if (userDoc.puntos_totales !== totalPuntos) {
-                  updateDoc(doc(db, 'usuarios', userDoc.id), { puntos_totales: totalPuntos }).catch(() => {});
+                if (user.puntos_totales !== totalPuntos) {
+                  updateDoc(doc(db, 'usuarios', user.id), { puntos_totales: totalPuntos }).catch(() => {});
                 }
 
-                return { ...userDoc, puntos_totales: totalPuntos };
+                return { ...user, puntos_totales: totalPuntos };
               } catch (e) {
-                return { ...userDoc };
+                return { ...user };
               }
             }));
 
             usuariosCalculados.sort((a, b) => b.puntos_totales - a.puntos_totales);
             setUsuarios(usuariosCalculados);
             setConnectionMode('online');
+            setErrorMessage(null);
           } else {
             setUsuarios(MOCK_USERS);
             setConnectionMode('fallback');
           }
           setLoading(false);
         }, (error) => {
-          console.error("Error en snapshot:", error);
           setUsuarios(MOCK_USERS);
           setConnectionMode('fallback');
           setLoading(false);
@@ -141,7 +106,7 @@ export default function App() {
       unsubscribeUsuarios();
       unsubscribePartidos();
     };
-  }, [user]);
+  }, []);
 
   const handleVerDetalle = async (usuario) => {
     setSelectedUser(usuario);
@@ -153,38 +118,41 @@ export default function App() {
         const pronosRef = collection(db, 'usuarios', usuario.id, 'pronosticos');
         const querySnapshot = await getDocs(pronosRef);
 
-        const listaPronos = querySnapshot.docs.map(docSnapshot => {
-          const prono = docSnapshot.data();
-          const partidoReal = partidos.find(p => String(p.id_api) === String(prono.partido_id));
+        if (!querySnapshot.empty) {
+          const listaPronos = querySnapshot.docs.map(docSnapshot => {
+            const prono = docSnapshot.data();
+            const partidoReal = partidos.find(p => String(p.id_api) === String(prono.partido_id));
 
-          let puntos_calc = 0;
-          let finalizado = false;
+            let puntos_calc = 0;
+            let finalizado = false;
 
-          if (partidoReal && partidoReal.estado === "finalizado") {
-            finalizado = true;
-            const pL = Number(prono.goles_local);
-            const pV = Number(prono.goles_visita);
-            const rL = Number(partidoReal.goles_local);
-            const rV = Number(partidoReal.goles_visitante);
+            if (partidoReal && partidoReal.estado === "finalizado") {
+              finalizado = true;
+              const pL = Number(prono.goles_local);
+              const pV = Number(prono.goles_visita);
+              const rL = Number(partidoReal.goles_local);
+              const rV = Number(partidoReal.goles_visitante);
 
-            if (pL === rL && pV === rV) puntos_calc = 5;
-            else if ((pL - pV > 0 && rL - rV > 0) || (pL - pV < 0 && rL - rV < 0) || (pL - pV === 0 && rL - rV === 0)) puntos_calc = 3;
-          }
+              if (pL === rL && pV === rV) puntos_calc = 5;
+              else if ((pL - pV > 0 && rL - rV > 0) || (pL - pV < 0 && rL - rV < 0) || (pL - pV === 0 && rL - rV === 0)) puntos_calc = 3;
+            }
 
-          return {
-            id: docSnapshot.id,
-            partido: partidoReal ? `${partidoReal.equipo_local.toUpperCase()} VS ${partidoReal.equipo_visitante.toUpperCase()}` : `Partido ${prono.partido_id}`,
-            local_prono: prono.goles_local ?? '-',
-            visita_prono: prono.goles_visita ?? '-',
-            local_real: partidoReal ? partidoReal.goles_local : null,
-            visita_real: partidoReal ? partidoReal.goles_visitante : null,
-            puntos: puntos_calc,
-            finalizado: finalizado
-          };
-        });
-        setPronosticosUsuario(listaPronos);
+            return {
+              id: docSnapshot.id,
+              partido: partidoReal ? `${partidoReal.equipo_local.toUpperCase()} VS ${partidoReal.equipo_visitante.toUpperCase()}` : `Partido ${prono.partido_id}`,
+              local_prono: prono.goles_local ?? '-',
+              visita_prono: prono.goles_visita ?? '-',
+              local_real: partidoReal ? partidoReal.goles_local : null,
+              visita_real: partidoReal ? partidoReal.goles_visitante : null,
+              puntos: puntos_calc,
+              finalizado: finalizado
+            };
+          });
+
+          setPronosticosUsuario(listaPronos);
+        }
       } catch (error) {
-        console.error("Error al obtener pronósticos:", error);
+        setErrorMessage("Error al cargar pronósticos.");
       } finally {
         setLoadingPronos(false);
       }
@@ -224,7 +192,7 @@ export default function App() {
             </div>
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
               <ul className="divide-y divide-slate-50">
-                {filteredUsers.map((user) => (
+                {filteredUsers.map((user, index) => (
                   <li key={user.id} onClick={() => handleVerDetalle(user)} className="px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-emerald-50">
                     <span className="font-semibold">{user.nombre}</span>
                     <span className="text-xl font-black text-emerald-600">{user.puntos_totales}</span>
