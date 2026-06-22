@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Trophy, Search, ChevronLeft, User, Activity, Medal, 
-  CheckCircle2, XCircle, MinusCircle, Wifi, WifiOff, AlertCircle 
+import {
+  Trophy, Search, ChevronLeft, User, Activity, Medal,
+  CheckCircle2, XCircle, MinusCircle, Wifi, WifiOff, AlertCircle
 } from 'lucide-react';
 
 import { initializeApp } from 'firebase/app';
-import { 
-  getFirestore, collection, query, orderBy, onSnapshot, 
-  getDocs, doc, updateDoc 
+import {
+  getFirestore, collection, query, orderBy, onSnapshot,
+  getDocs, doc, updateDoc
 } from 'firebase/firestore';
 
 // Configuración de Firebase simplificada para evitar errores de importación
@@ -31,13 +31,13 @@ export default function App() {
   const [pronosticosUsuario, setPronosticosUsuario] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingPronos, setLoadingPronos] = useState(false);
-  const [connectionMode, setConnectionMode] = useState('conectando'); 
+  const [connectionMode, setConnectionMode] = useState('conectando');
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
-    let unsubscribeUsuarios = () => {};
-    let unsubscribePartidos = () => {};
+    let unsubscribeUsuarios = () => { };
+    let unsubscribePartidos = () => { };
 
     try {
       unsubscribePartidos = onSnapshot(collection(db, 'partidos'), (snapP) => {
@@ -58,20 +58,20 @@ export default function App() {
                 let totalPuntos = 0;
                 pronosticos.forEach(prono => {
                   const partidoReal = partidosData.find(p => String(p.id_api) === String(prono.partido_id));
-                  
+
                   if (partidoReal && partidoReal.estado === "finalizado") {
                     const pL = Number(prono.goles_local);
                     const pV = Number(prono.goles_visita);
                     const rL = Number(partidoReal.goles_local);
                     const rV = Number(partidoReal.goles_visitante);
-                    
+
                     if (pL === rL && pV === rV) totalPuntos += 5;
                     else if ((pL - pV > 0 && rL - rV > 0) || (pL - pV < 0 && rL - rV < 0) || (pL - pV === 0 && rL - rV === 0)) totalPuntos += 3;
                   }
                 });
 
                 if (user.puntos_totales !== totalPuntos) {
-                  updateDoc(doc(db, 'usuarios', user.id), { puntos_totales: totalPuntos }).catch(() => {});
+                  updateDoc(doc(db, 'usuarios', user.id), { puntos_totales: totalPuntos }).catch(() => { });
                 }
 
                 return { ...user, puntos_totales: totalPuntos };
@@ -141,7 +141,7 @@ export default function App() {
               id: docSnapshot.id,
               partido: partidoReal ? `${partidoReal.equipo_local.toUpperCase()} VS ${partidoReal.equipo_visitante.toUpperCase()}` : `Partido ${prono.partido_id}`,
               // Asegúrate de que el formato de fecha sea compatible con Date.parse() (ej: YYYY-MM-DD)
-              fecha: partidoReal?.fecha || "9999-12-31",              
+              fecha: partidoReal?.fecha || "9999-12-31",
               local_prono: prono.goles_local ?? '-',
               visita_prono: prono.goles_visita ?? '-',
               local_real: partidoReal ? partidoReal.goles_local : null,
@@ -174,7 +174,7 @@ export default function App() {
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Trophy className="w-6 h-6 text-yellow-300" />
-            <h1 className="font-bold text-xl">Quiniela Mundial</h1>
+            <h1 className="font-bold text-xl">Polla Mundialista CEDI</h1>
           </div>
           {selectedUser && (
             <button onClick={() => setSelectedUser(null)} className="text-sm bg-emerald-700 px-3 py-1.5 rounded-full">Volver</button>
@@ -190,16 +190,42 @@ export default function App() {
         ) : !selectedUser ? (
           <div className="animate-in fade-in duration-500">
             <div className="relative mb-6 shadow-sm rounded-xl overflow-hidden">
-              <input type="text" placeholder="Busca tu nombre..." className="w-full pl-4 py-3 border-none bg-white" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+              <input
+                type="text"
+                placeholder="Busca tu nombre..."
+                className="w-full pl-4 py-3 border-none bg-white"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
               <ul className="divide-y divide-slate-50">
-                {filteredUsers.map((user, index) => (
-                  <li key={user.id} onClick={() => handleVerDetalle(user)} className="px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-emerald-50">
-                    <span className="font-semibold">{user.nombre}</span>
-                    <span className="text-xl font-black text-emerald-600">{user.puntos_totales}</span>
-                  </li>
-                ))}
+                {/* Ordenamos los usuarios filtrados por puntos de mayor a menor */}
+                {[...filteredUsers]
+                  .sort((a, b) => (b.puntos_totales || 0) - (a.puntos_totales || 0))
+                  .map((user, index) => {
+                    const esTop3 = index < 3;
+                    return (
+                      <li
+                        key={user.id}
+                        onClick={() => handleVerDetalle(user)}
+                        className={`px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-emerald-50 ${esTop3 ? 'bg-amber-50' : ''}`}
+                      >
+                        <div className="flex items-center gap-3">
+                          {/* Número de posición con medalla */}
+                          <span className={`font-bold w-6 text-center ${esTop3 ? 'text-amber-700' : 'text-slate-400'}`}>
+                            {esTop3 ? (index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉') : index + 1}
+                          </span>
+                          <span className={`font-semibold ${esTop3 ? 'text-amber-900' : 'text-slate-800'}`}>
+                            {user.nombre}
+                          </span>
+                        </div>
+                        <span className="text-xl font-black text-emerald-600">
+                          {user.puntos_totales || 0}
+                        </span>
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
           </div>
