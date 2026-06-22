@@ -12,12 +12,12 @@ import {
 import { getAuth, signInAnonymously } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
-  authDomain: "quiniela-worldcup-43262.firebaseapp.com",
-  projectId: "quiniela-worldcup-43262",
-  storageBucket: "quiniela-worldcup-43262.appspot.com",
-  messagingSenderId: "25784077559",
-  appId: "1:25784077559:web:b9eb933e906725929517f2"
+  apiKey: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).apiKey : "",
+  authDomain: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).authDomain : "",
+  projectId: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).projectId : "",
+  storageBucket: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).storageBucket : "",
+  messagingSenderId: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).messagingSenderId : "",
+  appId: typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config).appId : ""
 };
 
 const app = initializeApp(firebaseConfig);
