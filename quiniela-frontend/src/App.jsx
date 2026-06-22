@@ -6,11 +6,11 @@ import {
 
 import { initializeApp } from 'firebase/app';
 import { 
-  getFirestore, collection, query, orderBy, onSnapshot, 
+  getFirestore, collection, onSnapshot, 
   getDocs, doc, updateDoc 
 } from 'firebase/firestore';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 
-// Configuración de Firebase simplificada para evitar errores de importación
 const firebaseConfig = {
   apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
   authDomain: "quiniela-worldcup-43262.firebaseapp.com",
@@ -22,6 +22,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 const MOCK_USERS = [
   { id: 'carlos_perez', nombre: 'Carlos Perez (Simulado)', puntos_totales: 45 },
@@ -46,9 +47,29 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [loadingPronos, setLoadingPronos] = useState(false);
   const [connectionMode, setConnectionMode] = useState('conectando'); 
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const initAuth = async () => {
+      try {
+        await signInAnonymously(auth);
+      } catch (err) {
+        setConnectionMode('fallback');
+        setLoading(false);
+      }
+    };
+    initAuth();
+
+    const unsubscribeAuth = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribeAuth();
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+
     let isMounted = true;
     let unsubscribeUsuarios = () => {};
     let unsubscribePartidos = () => {};
@@ -64,9 +85,9 @@ export default function App() {
           if (!snapU.empty) {
             const usersData = snapU.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-            const usuariosCalculados = await Promise.all(usersData.map(async (user) => {
+            const usuariosCalculados = await Promise.all(usersData.map(async (userDoc) => {
               try {
-                const pronosSnap = await getDocs(collection(db, 'usuarios', user.id, 'pronosticos'));
+                const pronosSnap = await getDocs(collection(db, 'usuarios', userDoc.id, 'pronosticos'));
                 const pronosticos = pronosSnap.docs.map(d => d.data());
 
                 let totalPuntos = 0;
@@ -84,26 +105,26 @@ export default function App() {
                   }
                 });
 
-                if (user.puntos_totales !== totalPuntos) {
-                  updateDoc(doc(db, 'usuarios', user.id), { puntos_totales: totalPuntos }).catch(() => {});
+                if (userDoc.puntos_totales !== totalPuntos) {
+                  updateDoc(doc(db, 'usuarios', userDoc.id), { puntos_totales: totalPuntos }).catch(() => {});
                 }
 
-                return { ...user, puntos_totales: totalPuntos };
+                return { ...userDoc, puntos_totales: totalPuntos };
               } catch (e) {
-                return { ...user };
+                return { ...userDoc };
               }
             }));
 
             usuariosCalculados.sort((a, b) => b.puntos_totales - a.puntos_totales);
             setUsuarios(usuariosCalculados);
             setConnectionMode('online');
-            setErrorMessage(null);
           } else {
             setUsuarios(MOCK_USERS);
             setConnectionMode('fallback');
           }
           setLoading(false);
         }, (error) => {
+          console.error("Error en snapshot:", error);
           setUsuarios(MOCK_USERS);
           setConnectionMode('fallback');
           setLoading(false);
@@ -120,7 +141,7 @@ export default function App() {
       unsubscribeUsuarios();
       unsubscribePartidos();
     };
-  }, []);
+  }, [user]);
 
   const handleVerDetalle = async (usuario) => {
     setSelectedUser(usuario);
@@ -132,41 +153,38 @@ export default function App() {
         const pronosRef = collection(db, 'usuarios', usuario.id, 'pronosticos');
         const querySnapshot = await getDocs(pronosRef);
 
-        if (!querySnapshot.empty) {
-          const listaPronos = querySnapshot.docs.map(docSnapshot => {
-            const prono = docSnapshot.data();
-            const partidoReal = partidos.find(p => String(p.id_api) === String(prono.partido_id));
+        const listaPronos = querySnapshot.docs.map(docSnapshot => {
+          const prono = docSnapshot.data();
+          const partidoReal = partidos.find(p => String(p.id_api) === String(prono.partido_id));
 
-            let puntos_calc = 0;
-            let finalizado = false;
+          let puntos_calc = 0;
+          let finalizado = false;
 
-            if (partidoReal && partidoReal.estado === "finalizado") {
-              finalizado = true;
-              const pL = Number(prono.goles_local);
-              const pV = Number(prono.goles_visita);
-              const rL = Number(partidoReal.goles_local);
-              const rV = Number(partidoReal.goles_visitante);
+          if (partidoReal && partidoReal.estado === "finalizado") {
+            finalizado = true;
+            const pL = Number(prono.goles_local);
+            const pV = Number(prono.goles_visita);
+            const rL = Number(partidoReal.goles_local);
+            const rV = Number(partidoReal.goles_visitante);
 
-              if (pL === rL && pV === rV) puntos_calc = 5;
-              else if ((pL - pV > 0 && rL - rV > 0) || (pL - pV < 0 && rL - rV < 0) || (pL - pV === 0 && rL - rV === 0)) puntos_calc = 3;
-            }
+            if (pL === rL && pV === rV) puntos_calc = 5;
+            else if ((pL - pV > 0 && rL - rV > 0) || (pL - pV < 0 && rL - rV < 0) || (pL - pV === 0 && rL - rV === 0)) puntos_calc = 3;
+          }
 
-            return {
-              id: docSnapshot.id,
-              partido: partidoReal ? `${partidoReal.equipo_local.toUpperCase()} VS ${partidoReal.equipo_visitante.toUpperCase()}` : `Partido ${prono.partido_id}`,
-              local_prono: prono.goles_local ?? '-',
-              visita_prono: prono.goles_visita ?? '-',
-              local_real: partidoReal ? partidoReal.goles_local : null,
-              visita_real: partidoReal ? partidoReal.goles_visitante : null,
-              puntos: puntos_calc,
-              finalizado: finalizado
-            };
-          });
-
-          setPronosticosUsuario(listaPronos);
-        }
+          return {
+            id: docSnapshot.id,
+            partido: partidoReal ? `${partidoReal.equipo_local.toUpperCase()} VS ${partidoReal.equipo_visitante.toUpperCase()}` : `Partido ${prono.partido_id}`,
+            local_prono: prono.goles_local ?? '-',
+            visita_prono: prono.goles_visita ?? '-',
+            local_real: partidoReal ? partidoReal.goles_local : null,
+            visita_real: partidoReal ? partidoReal.goles_visitante : null,
+            puntos: puntos_calc,
+            finalizado: finalizado
+          };
+        });
+        setPronosticosUsuario(listaPronos);
       } catch (error) {
-        setErrorMessage("Error al cargar pronósticos.");
+        console.error("Error al obtener pronósticos:", error);
       } finally {
         setLoadingPronos(false);
       }
@@ -206,7 +224,7 @@ export default function App() {
             </div>
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
               <ul className="divide-y divide-slate-50">
-                {filteredUsers.map((user, index) => (
+                {filteredUsers.map((user) => (
                   <li key={user.id} onClick={() => handleVerDetalle(user)} className="px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-emerald-50">
                     <span className="font-semibold">{user.nombre}</span>
                     <span className="text-xl font-black text-emerald-600">{user.puntos_totales}</span>
