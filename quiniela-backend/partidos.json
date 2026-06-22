@@ -387,97 +387,97 @@
         "id_api": 33,
         "equipo_local": "Países Bajos",
         "equipo_visitante": "Suecia",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 5,
+        "goles_visitante": 1,
         "fase": "grupos",
         "grupo": "F",
         "fecha": "2026-06-20T12:00:00-05:00",
         "estadio": "Lincoln Financial Field",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 34,
         "equipo_local": "Alemania",
         "equipo_visitante": "Costa de Marfil",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 2,
+        "goles_visitante": 1,
         "fase": "grupos",
         "grupo": "E",
         "fecha": "2026-06-20T15:00:00-04:00",
         "estadio": "Gillette Stadium",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 35,
         "equipo_local": "Ecuador",
         "equipo_visitante": "Curazao",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 0,
+        "goles_visitante": 0,
         "fase": "grupos",
         "grupo": "E",
         "fecha": "2026-06-20T18:00:00-05:00",
         "estadio": "AT&T Stadium",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 36,
         "equipo_local": "Túnez",
         "equipo_visitante": "Japón",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 4,
+        "goles_visitante": 0,
         "fase": "grupos",
         "grupo": "F",
         "fecha": "2026-06-20T21:00:00-05:00",
         "estadio": "NRG Stadium",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 37,
         "equipo_local": "España",
         "equipo_visitante": "Arabia Saudita",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 4,
+        "goles_visitante": 0,
         "fase": "grupos",
         "grupo": "H",
         "fecha": "2026-06-21T13:00:00-07:00",
         "estadio": "Levi's Stadium",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 38,
         "equipo_local": "Bélgica",
         "equipo_visitante": "Irán",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 0,
+        "goles_visitante": 0,
         "fase": "grupos",
         "grupo": "G",
         "fecha": "2026-06-21T15:00:00-05:00",
         "estadio": "MetLife Stadium",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 39,
         "equipo_local": "Uruguay",
         "equipo_visitante": "Cabo Verde",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 2,
+        "goles_visitante": 2,
         "fase": "grupos",
         "grupo": "H",
         "fecha": "2026-06-21T18:00:00-07:00",
         "estadio": "Lumen Field",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 40,
         "equipo_local": "Nueva Zelanda",
         "equipo_visitante": "Egipto",
-        "goles_local": null,
-        "goles_visitante": null,
+        "goles_local": 1,
+        "goles_visitante": 3,
         "fase": "grupos",
         "grupo": "G",
         "fecha": "2026-06-21T21:00:00-05:00",
         "estadio": "Mercedes-Benz Stadium",
-        "estado": "programado"
+        "estado": "finalizado"
     },
     {
         "id_api": 41,

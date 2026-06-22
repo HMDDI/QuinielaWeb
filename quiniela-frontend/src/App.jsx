@@ -140,6 +140,8 @@ export default function App() {
             return {
               id: docSnapshot.id,
               partido: partidoReal ? `${partidoReal.equipo_local.toUpperCase()} VS ${partidoReal.equipo_visitante.toUpperCase()}` : `Partido ${prono.partido_id}`,
+              // Asegúrate de que el formato de fecha sea compatible con Date.parse() (ej: YYYY-MM-DD)
+              fecha: partidoReal?.fecha || "9999-12-31",              
               local_prono: prono.goles_local ?? '-',
               visita_prono: prono.goles_visita ?? '-',
               local_real: partidoReal ? partidoReal.goles_local : null,
@@ -148,7 +150,7 @@ export default function App() {
               finalizado: finalizado
             };
           });
-
+          listaPronos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
           setPronosticosUsuario(listaPronos);
         }
       } catch (error) {
