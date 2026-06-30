@@ -51,6 +51,10 @@ export default function App() {
 
   // 3. Efecto inicial (Solo se ejecuta UNA vez al entrar a la página)
   useEffect(() => {
+    // ESTA LÍNEA ES LA CLAVE: Vite no la borrará, cambiará el hash final 
+    // y obligará a Firebase a procesar el nuevo despliegue en GitHub Actions.
+    console.log("🚀 Iniciando Quiniela App - Despliegue Forzado v1.0.1");
+
     const initAuthAndData = async () => {
       await signInAnonymously(auth);
       await cargarDatosDeQuiniela();
@@ -233,5 +237,3 @@ export default function App() {
     </div>
   );
 }
-
-// comentario
