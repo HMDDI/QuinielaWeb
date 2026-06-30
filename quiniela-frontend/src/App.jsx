@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, Activity, RefreshCw, Search, ChevronLeft } from 'lucide-react';
-import { initializeApp } from 'firebase/app';
-import { 
-  getFirestore, collection, getDocs 
-} from 'firebase/firestore';
-import { getAuth, signInAnonymously } from 'firebase/auth';
+import {
+  Trophy, Search, ChevronLeft, User, Activity, Medal,
+  CheckCircle2, XCircle, MinusCircle, Wifi, WifiOff, AlertCircle
+} from 'lucide-react';
 
-// Configuración de Firebase (Se asume inyectada en el entorno, o pega la tuya aquí)
+import { initializeApp } from 'firebase/app';
+import {
+  getFirestore, collection, query, orderBy, onSnapshot,
+  getDocs, doc, updateDoc
+} from 'firebase/firestore';
+
+// Configuración de Firebase simplificada para evitar errores de importación
 const firebaseConfig = {
   apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
   authDomain: "quiniela-worldcup-43262.firebaseapp.com",
@@ -18,118 +22,163 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);
 
 export default function App() {
   const [usuarios, setUsuarios] = useState([]);
   const [partidos, setPartidos] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [pronosticosUsuario, setPronosticosUsuario] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [loadingPronos, setLoadingPronos] = useState(false);
+  const [connectionMode, setConnectionMode] = useState('conectando');
+  const [errorMessage, setErrorMessage] = useState(null);
 
-  // 2. Función de carga a demanda (Ahorra lecturas de Firebase)
-  const cargarDatosDeQuiniela = async () => {
+  useEffect(() => {
+    let isMounted = true;
+    let unsubscribeUsuarios = () => { };
+    let unsubscribePartidos = () => { };
+
     try {
-      // Consulta única para partidos
-      const snapP = await getDocs(collection(db, 'partidos'));
-      const partidosData = snapP.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setPartidos(partidosData);
+      unsubscribePartidos = onSnapshot(collection(db, 'partidos'), (snapP) => {
+        if (!isMounted) return;
+        const partidosData = snapP.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setPartidos(partidosData);
 
-      // Consulta única para usuarios
-      const snapU = await getDocs(collection(db, 'usuarios'));
-      const usersData = snapU.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setUsuarios(usersData);
-    } catch (error) {
-      console.error("Error al traer los datos de Firebase:", error);
-    } finally {
+        unsubscribeUsuarios = onSnapshot(collection(db, 'usuarios'), async (snapU) => {
+          if (!isMounted) return;
+          if (!snapU.empty) {
+            const usersData = snapU.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+            const usuariosCalculados = await Promise.all(usersData.map(async (user) => {
+              try {
+                const pronosSnap = await getDocs(collection(db, 'usuarios', user.id, 'pronosticos'));
+                const pronosticos = pronosSnap.docs.map(d => d.data());
+
+                let totalPuntos = 0;
+                pronosticos.forEach(prono => {
+                  const partidoReal = partidosData.find(p => String(p.id_api) === String(prono.partido_id));
+
+                  if (partidoReal && partidoReal.estado === "finalizado") {
+                    const pL = Number(prono.goles_local);
+                    const pV = Number(prono.goles_visita);
+                    const rL = Number(partidoReal.goles_local);
+                    const rV = Number(partidoReal.goles_visitante);
+
+                    if (pL === rL && pV === rV) totalPuntos += 5;
+                    else if ((pL - pV > 0 && rL - rV > 0) || (pL - pV < 0 && rL - rV < 0) || (pL - pV === 0 && rL - rV === 0)) totalPuntos += 3;
+                  }
+                });
+
+                if (user.puntos_totales !== totalPuntos) {
+                  updateDoc(doc(db, 'usuarios', user.id), { puntos_totales: totalPuntos }).catch(() => { });
+                }
+
+                return { ...user, puntos_totales: totalPuntos };
+              } catch (e) {
+                return { ...user };
+              }
+            }));
+
+            usuariosCalculados.sort((a, b) => b.puntos_totales - a.puntos_totales);
+            setUsuarios(usuariosCalculados);
+            setConnectionMode('online');
+            setErrorMessage(null);
+          } else {
+            setUsuarios(MOCK_USERS);
+            setConnectionMode('fallback');
+          }
+          setLoading(false);
+        }, (error) => {
+          setUsuarios(MOCK_USERS);
+          setConnectionMode('fallback');
+          setLoading(false);
+        });
+      });
+    } catch (err) {
+      setUsuarios(MOCK_USERS);
+      setConnectionMode('fallback');
       setLoading(false);
-      setRefreshing(false);
+    }
+
+    return () => {
+      isMounted = false;
+      unsubscribeUsuarios();
+      unsubscribePartidos();
+    };
+  }, []);
+
+  const handleVerDetalle = async (usuario) => {
+    setSelectedUser(usuario);
+    setLoadingPronos(true);
+    setPronosticosUsuario([]);
+
+    if (connectionMode === 'online') {
+      try {
+        const pronosRef = collection(db, 'usuarios', usuario.id, 'pronosticos');
+        const querySnapshot = await getDocs(pronosRef);
+
+        if (!querySnapshot.empty) {
+          const listaPronos = querySnapshot.docs.map(docSnapshot => {
+            const prono = docSnapshot.data();
+            const partidoReal = partidos.find(p => String(p.id_api) === String(prono.partido_id));
+
+            let puntos_calc = 0;
+            let finalizado = false;
+
+            if (partidoReal && partidoReal.estado === "finalizado") {
+              finalizado = true;
+              const pL = Number(prono.goles_local);
+              const pV = Number(prono.goles_visita);
+              const rL = Number(partidoReal.goles_local);
+              const rV = Number(partidoReal.goles_visitante);
+
+              if (pL === rL && pV === rV) puntos_calc = 5;
+              else if ((pL - pV > 0 && rL - rV > 0) || (pL - pV < 0 && rL - rV < 0) || (pL - pV === 0 && rL - rV === 0)) puntos_calc = 3;
+            }
+
+            return {
+              id: docSnapshot.id,
+              partido: partidoReal ? `${partidoReal.equipo_local.toUpperCase()} VS ${partidoReal.equipo_visitante.toUpperCase()}` : `Partido ${prono.partido_id}`,
+              // Asegúrate de que el formato de fecha sea compatible con Date.parse() (ej: YYYY-MM-DD)
+              fecha: partidoReal?.fecha || "9999-12-31",
+              local_prono: prono.goles_local ?? '-',
+              visita_prono: prono.goles_visita ?? '-',
+              local_real: partidoReal ? partidoReal.goles_local : null,
+              visita_real: partidoReal ? partidoReal.goles_visitante : null,
+              puntos: puntos_calc,
+              finalizado: finalizado
+            };
+          });
+          listaPronos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+          setPronosticosUsuario(listaPronos);
+        }
+      } catch (error) {
+        setErrorMessage("Error al cargar pronósticos.");
+      } finally {
+        setLoadingPronos(false);
+      }
+    } else {
+      setTimeout(() => {
+        setPronosticosUsuario(MOCK_PRONOSTICOS);
+        setLoadingPronos(false);
+      }, 500);
     }
   };
 
-  // 3. Efecto inicial (Solo se ejecuta UNA vez al entrar a la página)
-  useEffect(() => {
-    // ESTA LÍNEA ES LA CLAVE: Vite no la borrará, cambiará el hash final 
-    // y obligará a Firebase a procesar el nuevo despliegue en GitHub Actions.
-    console.log("🚀 Iniciando Quiniela App - Despliegue Forzado v1.0.1");
-
-    const initAuthAndData = async () => {
-      await signInAnonymously(auth);
-      await cargarDatosDeQuiniela();
-    };
-    initAuthAndData();
-  }, []);
-
-  // Función para el botón de refrescar manual
-  const handleRefresh = () => {
-    setRefreshing(true);
-    cargarDatosDeQuiniela();
-  };
-
-  // 4. Detalle del usuario y orden de fechas
-  const handleVerDetalle = async (usuario) => {
-    setSelectedUser(usuario);
-    const pronosRef = collection(db, 'usuarios', usuario.id, 'pronosticos');
-    const querySnapshot = await getDocs(pronosRef);
-
-    const listaPronos = querySnapshot.docs.map(docSnapshot => {
-      const prono = docSnapshot.data();
-      const partidoReal = partidos.find(p => String(p.id_api) === String(prono.partido_id));
-
-      return {
-        ...prono,
-        partido: partidoReal ? `${partidoReal.equipo_local} VS ${partidoReal.equipo_visitante}` : "Partido Desconocido",
-        fecha: partidoReal?.fecha || "9999-12-31", // Para ordenar
-        local_real: partidoReal?.goles_local,
-        visita_real: partidoReal?.goles_visitante,
-        finalizado: partidoReal?.estado === "finalizado"
-      };
-    });
-
-    // Ordenar de forma ascendente: del primero (antiguo) al más reciente
-    listaPronos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-    
-    setPronosticosUsuario(listaPronos);
-  };
-
-  // 5. Filtrar usuarios por buscador
-  const filteredUsers = usuarios.filter(u => 
-    u.nombre && u.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredUsers = usuarios.filter(u => u.nombre && u.nombre.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans pb-10">
-      
-      {/* HEADER CON BOTÓN DE ACTUALIZAR */}
-      <header className="bg-emerald-600 text-white p-4 shadow-md sticky top-0 z-10">
-        <div className="max-w-3xl mx-auto flex justify-between items-center">
-          <h1 className="font-bold text-xl flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-amber-300" /> Quiniela
-          </h1>
-          
-          <div className="flex gap-2">
-            {!selectedUser && (
-              <button 
-                onClick={handleRefresh} 
-                disabled={refreshing}
-                className="flex items-center gap-2 text-sm bg-emerald-700 hover:bg-emerald-800 px-3 py-2 rounded-lg transition-colors disabled:opacity-50"
-              >
-                <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
-                <span className="hidden sm:inline">Actualizar</span>
-              </button>
-            )}
-            
-            {selectedUser && (
-              <button 
-                onClick={() => setSelectedUser(null)} 
-                className="flex items-center gap-1 text-sm bg-emerald-700 hover:bg-emerald-800 px-3 py-2 rounded-lg transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4" /> Volver
-              </button>
-            )}
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
+      <header className="bg-emerald-600 text-white shadow-md sticky top-0 z-10">
+        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Trophy className="w-6 h-6 text-yellow-300" />
+            <h1 className="font-bold text-xl">Polla Mundialista CEDI</h1>
           </div>
+          {selectedUser && (
+            <button onClick={() => setSelectedUser(null)} className="text-sm bg-emerald-700 px-3 py-1.5 rounded-full">Volver</button>
+          )}
         </div>
       </header>
 
@@ -137,99 +186,68 @@ export default function App() {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 text-emerald-600">
             <Activity className="w-10 h-10 animate-spin mb-4" />
-            <p className="text-sm font-medium animate-pulse">Cargando datos...</p>
           </div>
         ) : !selectedUser ? (
           <div className="animate-in fade-in duration-500">
-            {/* BUSCADOR */}
-            <div className="relative mb-6 shadow-sm rounded-xl overflow-hidden flex items-center bg-white">
-              <Search className="w-5 h-5 text-slate-400 absolute left-4" />
-              <input 
-                type="text" 
-                placeholder="Busca tu nombre..." 
-                className="w-full pl-12 pr-4 py-4 border-none bg-transparent outline-none focus:ring-2 focus:ring-emerald-500 transition-all" 
-                value={searchTerm} 
-                onChange={(e) => setSearchTerm(e.target.value)} 
+            <div className="relative mb-6 shadow-sm rounded-xl overflow-hidden">
+              <input
+                type="text"
+                placeholder="Busca tu nombre..."
+                className="w-full pl-4 py-3 border-none bg-white"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            
-            {/* LISTA CON PODIO (Top 3) */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
               <ul className="divide-y divide-slate-50">
+                {/* Ordenamos los usuarios filtrados por puntos de mayor a menor */}
                 {[...filteredUsers]
                   .sort((a, b) => (b.puntos_totales || 0) - (a.puntos_totales || 0))
                   .map((user, index) => {
-                    const esTop3 = index < 3 && !searchTerm; // Solo muestra podio si no se está buscando
-                    
+                    const esTop3 = index < 3;
                     return (
-                      <li 
-                        key={user.id} 
-                        onClick={() => handleVerDetalle(user)} 
-                        className={`px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-emerald-50 transition-colors ${esTop3 ? 'bg-amber-50/50' : ''}`}
+                      <li
+                        key={user.id}
+                        onClick={() => handleVerDetalle(user)}
+                        className={`px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-emerald-50 ${esTop3 ? 'bg-amber-50' : ''}`}
                       >
                         <div className="flex items-center gap-3">
-                          <span className={`font-bold w-6 text-center ${esTop3 ? 'text-amber-700 text-lg' : 'text-slate-400 text-sm'}`}>
+                          {/* Número de posición con medalla */}
+                          <span className={`font-bold w-6 text-center ${esTop3 ? 'text-amber-700' : 'text-slate-400'}`}>
                             {esTop3 ? (index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉') : index + 1}
                           </span>
-                          <span className={`font-semibold ${esTop3 ? 'text-amber-900' : 'text-slate-700'}`}>
+                          <span className={`font-semibold ${esTop3 ? 'text-amber-900' : 'text-slate-800'}`}>
                             {user.nombre}
                           </span>
                         </div>
-                        <span className={`text-xl font-black ${esTop3 ? 'text-amber-600' : 'text-emerald-600'}`}>
-                          {user.puntos_totales || 0} <span className="text-xs text-slate-400 font-normal">pts</span>
+                        <span className="text-xl font-black text-emerald-600">
+                          {user.puntos_totales || 0}
                         </span>
                       </li>
                     );
                   })}
-                
-                {filteredUsers.length === 0 && (
-                  <li className="p-8 text-center text-slate-500">No se encontraron participantes.</li>
-                )}
               </ul>
             </div>
           </div>
         ) : (
-          /* DETALLE DE PRONÓSTICOS DEL USUARIO SELECCIONADO */
           <div className="animate-in fade-in duration-300">
-            <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-6 mb-6 text-white text-center shadow-md relative overflow-hidden">
-              <div className="absolute top-0 right-0 opacity-10 transform translate-x-4 -translate-y-4">
-                <Trophy className="w-32 h-32" />
-              </div>
-              <h2 className="text-2xl font-bold relative z-10">{selectedUser.nombre}</h2>
-              <div className="text-5xl font-black mt-2 relative z-10">{selectedUser.puntos_totales || 0} pts</div>
+            <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-6 mb-6 text-white text-center">
+              <h2 className="text-2xl font-bold">{selectedUser.nombre}</h2>
+              <div className="text-5xl font-black mt-2">{selectedUser.puntos_totales}</div>
             </div>
-            
             <div className="space-y-4">
-              <h3 className="font-bold text-slate-700 mb-2 px-1">Historial de Pronósticos</h3>
-              {pronosticosUsuario.length === 0 ? (
-                <div className="text-center p-8 bg-white rounded-xl text-slate-500">Sin pronósticos registrados.</div>
-              ) : (
-                pronosticosUsuario.map((prono, index) => (
-                  <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-100 p-4">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-1 rounded">
-                        {prono.fecha !== "9999-12-31" ? prono.fecha : "Sin fecha"}
-                      </div>
-                      <div className="text-center font-bold text-sm flex-1">{prono.partido}</div>
+              {pronosticosUsuario.map((prono) => (
+                <div key={prono.id} className="bg-white rounded-xl shadow-sm p-4">
+                  <div className="text-center font-bold text-sm mb-3">{prono.partido}</div>
+                  <div className="grid grid-cols-3 gap-4 text-center items-center">
+                    <div className="bg-slate-50 rounded-lg p-2 font-bold">{prono.local_prono} - {prono.visita_prono}</div>
+                    <div className={`text-xl font-black ${prono.finalizado ? 'text-emerald-600' : 'text-slate-400'}`}>
+                      {prono.finalizado ? `+${prono.puntos}` : '-'}
                     </div>
-                    
-                    <div className="grid grid-cols-3 gap-4 text-center items-center">
-                      <div className="bg-slate-50 border border-slate-100 rounded-lg p-2 font-bold text-slate-700">
-                        <div className="text-[10px] uppercase text-slate-400 tracking-wider mb-1">Tu Pronóstico</div>
-                        {prono.local_prono} - {prono.visita_prono}
-                      </div>
-                      <div className={`text-xl font-black flex flex-col justify-center ${prono.finalizado ? 'text-emerald-600' : 'text-slate-300'}`}>
-                         {prono.finalizado ? `+${prono.puntos || 0}` : '-'}
-                         {prono.finalizado && <span className="text-[10px] text-slate-400 font-normal mt-1">puntos</span>}
-                      </div>
-                      <div className="bg-slate-50 border border-slate-100 rounded-lg p-2 font-bold text-slate-700">
-                        <div className="text-[10px] uppercase text-slate-400 tracking-wider mb-1">Resultado Real</div>
-                        {prono.finalizado ? `${prono.local_real} - ${prono.visita_real}` : 'Pendiente'}
-                      </div>
-                    </div>
+                    <div className="bg-slate-50 rounded-lg p-2 font-bold">{prono.finalizado ? `${prono.local_real} - ${prono.visita_real}` : '? - ?'}</div>
                   </div>
-                ))
-              )}
+                </div>
+              ))}
             </div>
           </div>
         )}
