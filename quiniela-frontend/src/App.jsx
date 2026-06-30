@@ -174,7 +174,7 @@ export default function App() {
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Trophy className="w-6 h-6 text-yellow-300" />
-            <h1 className="font-bold text-xl">Polla Mundialista CEDI</h1>
+            <h1 className="font-bold text-xl">Mundial - CEDI</h1>
           </div>
           {selectedUser && (
             <button onClick={() => setSelectedUser(null)} className="text-sm bg-emerald-700 px-3 py-1.5 rounded-full">Volver</button>
