@@ -10,7 +10,7 @@ import {
   getDocs, doc, updateDoc
 } from 'firebase/firestore';
 
-// Configuración de Firebase simplificada para evitar errores de importación
+// 1. Configuración de Firebase (Se asume inyectada en el entorno, o pega la tuya aquí)
 const firebaseConfig = {
   apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
   authDomain: "quiniela-worldcup-43262.firebaseapp.com",
