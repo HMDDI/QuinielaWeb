@@ -16,14 +16,14 @@ jobs:
         
       - name: Build project
         run: npm run build --if-present
-        working-directory: ./quiniela-
+        working-directory: ./quiniela-frontend
         
       - name: Verify build
         run: |
-          echo "=== DIST ==="
-          ls -la quiniela-frontend/dist
-          echo "=== INDEX ==="
-          cat quiniela-frontend/dist/index.html | head -20
+            echo "=== DIST ==="
+            ls -la quiniela-frontend/dist
+            echo "=== INDEX ==="
+            cat quiniela-frontend/dist/index.html | head -20
         
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
