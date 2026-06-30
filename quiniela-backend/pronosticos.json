@@ -418,6 +418,14 @@
   {
     "usuario_id": "adrian_despacho",
     "partido_id": 53,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "adrian_despacho",
+    "partido_id": 54,
     "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -425,16 +433,8 @@
   },
   {
     "usuario_id": "adrian_despacho",
-    "partido_id": 54,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
-    "puntos_ganados": 0,
-    "procesado": false
-  },
-  {
-    "usuario_id": "adrian_despacho",
     "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -442,7 +442,7 @@
   {
     "usuario_id": "adrian_despacho",
     "partido_id": 56,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -497,7 +497,7 @@
   },
   {
     "usuario_id": "adrian_despacho",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -505,7 +505,7 @@
   },
   {
     "usuario_id": "adrian_despacho",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 2,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -562,6 +562,14 @@
   {
     "usuario_id": "adrian_despacho",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "adrian_despacho",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -569,9 +577,33 @@
   },
   {
     "usuario_id": "adrian_despacho",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "adrian_despacho",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "adrian_despacho",
+    "partido_id": 75,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "adrian_despacho",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -995,7 +1027,7 @@
     "usuario_id": "alexander",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1003,7 +1035,7 @@
     "usuario_id": "alexander",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1011,7 +1043,7 @@
     "usuario_id": "alexander",
     "partido_id": 55,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 5,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1019,7 +1051,7 @@
     "usuario_id": "alexander",
     "partido_id": 56,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 5,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1073,17 +1105,17 @@
   },
   {
     "usuario_id": "alexander",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "alexander",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1139,7 +1171,7 @@
     "usuario_id": "alexander",
     "partido_id": 71,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1147,7 +1179,39 @@
     "usuario_id": "alexander",
     "partido_id": 72,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "alexander",
+    "partido_id": 73,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "alexander",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "alexander",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "alexander",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1586,7 +1650,7 @@
   {
     "usuario_id": "baloteli",
     "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -1594,7 +1658,7 @@
   {
     "usuario_id": "baloteli",
     "partido_id": 56,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -1649,17 +1713,17 @@
   },
   {
     "usuario_id": "baloteli",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "baloteli",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -1714,6 +1778,14 @@
   {
     "usuario_id": "baloteli",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "baloteli",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -1721,9 +1793,33 @@
   },
   {
     "usuario_id": "baloteli",
-    "partido_id": 72,
+    "partido_id": 73,
     "goles_local_prono": 0,
     "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "baloteli",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "baloteli",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "baloteli",
+    "partido_id": 76,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2162,7 +2258,7 @@
   {
     "usuario_id": "carlos_carrion",
     "partido_id": 55,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -2170,7 +2266,7 @@
   {
     "usuario_id": "carlos_carrion",
     "partido_id": 56,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -2225,17 +2321,17 @@
   },
   {
     "usuario_id": "carlos_carrion",
-    "partido_id": 64,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "partido_id": 63,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "carlos_carrion",
-    "partido_id": 63,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "partido_id": 64,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2291,7 +2387,7 @@
     "usuario_id": "carlos_carrion",
     "partido_id": 71,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2299,7 +2395,39 @@
     "usuario_id": "carlos_carrion",
     "partido_id": 72,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_carrion",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_carrion",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_carrion",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_carrion",
+    "partido_id": 76,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2723,7 +2851,7 @@
     "usuario_id": "carlos_el_mercaderista",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2731,7 +2859,7 @@
     "usuario_id": "carlos_el_mercaderista",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2739,7 +2867,7 @@
     "usuario_id": "carlos_el_mercaderista",
     "partido_id": 55,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2747,7 +2875,7 @@
     "usuario_id": "carlos_el_mercaderista",
     "partido_id": 56,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2801,17 +2929,17 @@
   },
   {
     "usuario_id": "carlos_el_mercaderista",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "carlos_el_mercaderista",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -2866,6 +2994,14 @@
   {
     "usuario_id": "carlos_el_mercaderista",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 5,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_el_mercaderista",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -2873,9 +3009,33 @@
   },
   {
     "usuario_id": "carlos_el_mercaderista",
-    "partido_id": 72,
+    "partido_id": 73,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 5,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_el_mercaderista",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_el_mercaderista",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "carlos_el_mercaderista",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -3298,7 +3458,7 @@
   {
     "usuario_id": "celso",
     "partido_id": 53,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
@@ -3306,7 +3466,7 @@
   {
     "usuario_id": "celso",
     "partido_id": 54,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
@@ -3314,16 +3474,16 @@
   {
     "usuario_id": "celso",
     "partido_id": 55,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "celso",
     "partido_id": 56,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -3377,17 +3537,17 @@
   },
   {
     "usuario_id": "celso",
-    "partido_id": 64,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "partido_id": 63,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "celso",
-    "partido_id": 63,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "partido_id": 64,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -3442,6 +3602,14 @@
   {
     "usuario_id": "celso",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "celso",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -3449,9 +3617,33 @@
   },
   {
     "usuario_id": "celso",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "celso",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "celso",
+    "partido_id": 75,
+    "goles_local_prono": 4,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "celso",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -3874,7 +4066,7 @@
   {
     "usuario_id": "cesar_casas",
     "partido_id": 53,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
@@ -3882,7 +4074,7 @@
   {
     "usuario_id": "cesar_casas",
     "partido_id": 54,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
@@ -3891,7 +4083,7 @@
     "usuario_id": "cesar_casas",
     "partido_id": 55,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -3899,7 +4091,7 @@
     "usuario_id": "cesar_casas",
     "partido_id": 56,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -3953,7 +4145,7 @@
   },
   {
     "usuario_id": "cesar_casas",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -3961,7 +4153,7 @@
   },
   {
     "usuario_id": "cesar_casas",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -4018,8 +4210,8 @@
   {
     "usuario_id": "cesar_casas",
     "partido_id": 71,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 0,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 5,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -4027,7 +4219,39 @@
     "usuario_id": "cesar_casas",
     "partido_id": 72,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 5,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_casas",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_casas",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_casas",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_casas",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -4450,6 +4674,14 @@
   {
     "usuario_id": "cesar_lobo",
     "partido_id": 53,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_lobo",
+    "partido_id": 54,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -4457,25 +4689,17 @@
   },
   {
     "usuario_id": "cesar_lobo",
-    "partido_id": 54,
+    "partido_id": 55,
     "goles_local_prono": 2,
     "goles_visitante_prono": 1,
-    "puntos_ganados": 0,
-    "procesado": false
-  },
-  {
-    "usuario_id": "cesar_lobo",
-    "partido_id": 55,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "cesar_lobo",
     "partido_id": 56,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 1,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -4529,7 +4753,7 @@
   },
   {
     "usuario_id": "cesar_lobo",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -4537,7 +4761,7 @@
   },
   {
     "usuario_id": "cesar_lobo",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 2,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -4595,7 +4819,7 @@
     "usuario_id": "cesar_lobo",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -4603,6 +4827,38 @@
     "usuario_id": "cesar_lobo",
     "partido_id": 72,
     "goles_local_prono": 0,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_lobo",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_lobo",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_lobo",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "cesar_lobo",
+    "partido_id": 76,
+    "goles_local_prono": 3,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -5027,7 +5283,7 @@
     "usuario_id": "david_perez",
     "partido_id": 53,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -5035,7 +5291,7 @@
     "usuario_id": "david_perez",
     "partido_id": 54,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -5105,7 +5361,7 @@
   },
   {
     "usuario_id": "david_perez",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 2,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -5113,7 +5369,7 @@
   },
   {
     "usuario_id": "david_perez",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -5170,6 +5426,14 @@
   {
     "usuario_id": "david_perez",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 4,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "david_perez",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -5177,9 +5441,33 @@
   },
   {
     "usuario_id": "david_perez",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 4,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "david_perez",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "david_perez",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "david_perez",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -5602,7 +5890,7 @@
   {
     "usuario_id": "debora_brown",
     "partido_id": 53,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -5610,7 +5898,7 @@
   {
     "usuario_id": "debora_brown",
     "partido_id": 54,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -5618,16 +5906,16 @@
   {
     "usuario_id": "debora_brown",
     "partido_id": 55,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "debora_brown",
     "partido_id": 56,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -5681,7 +5969,7 @@
   },
   {
     "usuario_id": "debora_brown",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 0,
     "puntos_ganados": 0,
@@ -5689,7 +5977,7 @@
   },
   {
     "usuario_id": "debora_brown",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -5746,6 +6034,14 @@
   {
     "usuario_id": "debora_brown",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 4,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "debora_brown",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -5753,9 +6049,33 @@
   },
   {
     "usuario_id": "debora_brown",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 4,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "debora_brown",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "debora_brown",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "debora_brown",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -6179,7 +6499,7 @@
     "usuario_id": "dickens",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -6187,23 +6507,23 @@
     "usuario_id": "dickens",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "dickens",
     "partido_id": 55,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "dickens",
     "partido_id": 56,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -6257,7 +6577,7 @@
   },
   {
     "usuario_id": "dickens",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -6265,7 +6585,7 @@
   },
   {
     "usuario_id": "dickens",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -6322,6 +6642,14 @@
   {
     "usuario_id": "dickens",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens",
+    "partido_id": 72,
     "goles_local_prono": 2,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -6329,9 +6657,33 @@
   },
   {
     "usuario_id": "dickens",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -6754,32 +7106,32 @@
   {
     "usuario_id": "dickens_(hijo)",
     "partido_id": 53,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "dickens_(hijo)",
     "partido_id": 54,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
-    "puntos_ganados": 0,
-    "procesado": false
-  },
-  {
-    "usuario_id": "dickens_(hijo)",
-    "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "dickens_(hijo)",
-    "partido_id": 56,
+    "partido_id": 55,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens_(hijo)",
+    "partido_id": 56,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -6826,14 +7178,6 @@
   {
     "usuario_id": "dickens_(hijo)",
     "partido_id": 62,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 0,
-    "puntos_ganados": 0,
-    "procesado": false
-  },
-  {
-    "usuario_id": "dickens_(hijo)",
-    "partido_id": 64,
     "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -6842,8 +7186,16 @@
   {
     "usuario_id": "dickens_(hijo)",
     "partido_id": 63,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 4,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens_(hijo)",
+    "partido_id": 64,
     "goles_local_prono": 2,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -6898,6 +7250,14 @@
   {
     "usuario_id": "dickens_(hijo)",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens_(hijo)",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -6905,9 +7265,33 @@
   },
   {
     "usuario_id": "dickens_(hijo)",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens_(hijo)",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens_(hijo)",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dickens_(hijo)",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -7330,16 +7714,16 @@
   {
     "usuario_id": "dolande",
     "partido_id": 53,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 0,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "dolande",
     "partido_id": 54,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -7409,17 +7793,17 @@
   },
   {
     "usuario_id": "dolande",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "dolande",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -7474,6 +7858,14 @@
   {
     "usuario_id": "dolande",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dolande",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -7481,9 +7873,33 @@
   },
   {
     "usuario_id": "dolande",
-    "partido_id": 72,
-    "goles_local_prono": 0,
+    "partido_id": 73,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dolande",
+    "partido_id": 74,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dolande",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "dolande",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -7907,7 +8323,7 @@
     "usuario_id": "ernesto_mercaderista",
     "partido_id": 53,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -7915,7 +8331,7 @@
     "usuario_id": "ernesto_mercaderista",
     "partido_id": 54,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -7985,16 +8401,16 @@
   },
   {
     "usuario_id": "ernesto_mercaderista",
-    "partido_id": 64,
-    "goles_local_prono": 1,
+    "partido_id": 63,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "ernesto_mercaderista",
-    "partido_id": 63,
-    "goles_local_prono": 0,
+    "partido_id": 64,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -8050,6 +8466,14 @@
   {
     "usuario_id": "ernesto_mercaderista",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "ernesto_mercaderista",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -8057,9 +8481,33 @@
   },
   {
     "usuario_id": "ernesto_mercaderista",
-    "partido_id": 72,
-    "goles_local_prono": 0,
+    "partido_id": 73,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "ernesto_mercaderista",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "ernesto_mercaderista",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "ernesto_mercaderista",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -8498,7 +8946,7 @@
   {
     "usuario_id": "felix_bulk2",
     "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -8506,7 +8954,7 @@
   {
     "usuario_id": "felix_bulk2",
     "partido_id": 56,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -8561,7 +9009,7 @@
   },
   {
     "usuario_id": "felix_bulk2",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -8569,7 +9017,7 @@
   },
   {
     "usuario_id": "felix_bulk2",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -8626,6 +9074,14 @@
   {
     "usuario_id": "felix_bulk2",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 4,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "felix_bulk2",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -8633,9 +9089,33 @@
   },
   {
     "usuario_id": "felix_bulk2",
-    "partido_id": 72,
+    "partido_id": 73,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 4,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "felix_bulk2",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "felix_bulk2",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "felix_bulk2",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -9058,7 +9538,7 @@
   {
     "usuario_id": "heriberto_bernal",
     "partido_id": 53,
-    "goles_local_prono": 2,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
@@ -9066,7 +9546,7 @@
   {
     "usuario_id": "heriberto_bernal",
     "partido_id": 54,
-    "goles_local_prono": 1,
+    "goles_local_prono": 2,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
@@ -9137,7 +9617,7 @@
   },
   {
     "usuario_id": "heriberto_bernal",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -9145,7 +9625,7 @@
   },
   {
     "usuario_id": "heriberto_bernal",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -9202,7 +9682,7 @@
   {
     "usuario_id": "heriberto_bernal",
     "partido_id": 71,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -9210,8 +9690,40 @@
   {
     "usuario_id": "heriberto_bernal",
     "partido_id": 72,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "heriberto_bernal",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "heriberto_bernal",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "heriberto_bernal",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "heriberto_bernal",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -9713,7 +10225,7 @@
   },
   {
     "usuario_id": "jonathan_bulk2",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -9721,7 +10233,7 @@
   },
   {
     "usuario_id": "jonathan_bulk2",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -9779,7 +10291,7 @@
     "usuario_id": "jonathan_bulk2",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 4,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -9787,7 +10299,39 @@
     "usuario_id": "jonathan_bulk2",
     "partido_id": 72,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 4,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jonathan_bulk2",
+    "partido_id": 73,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jonathan_bulk2",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jonathan_bulk2",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jonathan_bulk2",
+    "partido_id": 76,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -10211,7 +10755,7 @@
     "usuario_id": "jose_batista",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -10219,14 +10763,14 @@
     "usuario_id": "jose_batista",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "jose_batista",
     "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -10234,7 +10778,7 @@
   {
     "usuario_id": "jose_batista",
     "partido_id": 56,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -10289,17 +10833,17 @@
   },
   {
     "usuario_id": "jose_batista",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "jose_batista",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -10354,6 +10898,14 @@
   {
     "usuario_id": "jose_batista",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jose_batista",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -10361,9 +10913,33 @@
   },
   {
     "usuario_id": "jose_batista",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jose_batista",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jose_batista",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "jose_batista",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -10787,7 +11363,7 @@
     "usuario_id": "juan_contreras",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -10795,23 +11371,23 @@
     "usuario_id": "juan_contreras",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "juan_contreras",
     "partido_id": 55,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 0,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "juan_contreras",
     "partido_id": 56,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -10865,7 +11441,7 @@
   },
   {
     "usuario_id": "juan_contreras",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 2,
     "goles_visitante_prono": 0,
     "puntos_ganados": 0,
@@ -10873,7 +11449,7 @@
   },
   {
     "usuario_id": "juan_contreras",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -10930,7 +11506,7 @@
   {
     "usuario_id": "juan_contreras",
     "partido_id": 71,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -10938,8 +11514,40 @@
   {
     "usuario_id": "juan_contreras",
     "partido_id": 72,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_contreras",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_contreras",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_contreras",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_contreras",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -11362,14 +11970,6 @@
   {
     "usuario_id": "juan_guisado",
     "partido_id": 53,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
-    "puntos_ganados": 0,
-    "procesado": false
-  },
-  {
-    "usuario_id": "juan_guisado",
-    "partido_id": 54,
     "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -11377,8 +11977,16 @@
   },
   {
     "usuario_id": "juan_guisado",
+    "partido_id": 54,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_guisado",
     "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -11386,7 +11994,7 @@
   {
     "usuario_id": "juan_guisado",
     "partido_id": 56,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -11441,7 +12049,7 @@
   },
   {
     "usuario_id": "juan_guisado",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -11449,7 +12057,7 @@
   },
   {
     "usuario_id": "juan_guisado",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -11507,7 +12115,7 @@
     "usuario_id": "juan_guisado",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 4,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -11515,7 +12123,39 @@
     "usuario_id": "juan_guisado",
     "partido_id": 72,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 4,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_guisado",
+    "partido_id": 73,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_guisado",
+    "partido_id": 74,
+    "goles_local_prono": 4,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_guisado",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "juan_guisado",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -11954,16 +12594,16 @@
   {
     "usuario_id": "lilibeth_copete",
     "partido_id": 55,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "lilibeth_copete",
     "partido_id": 56,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -12017,7 +12657,7 @@
   },
   {
     "usuario_id": "lilibeth_copete",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 0,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -12025,7 +12665,7 @@
   },
   {
     "usuario_id": "lilibeth_copete",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -12082,8 +12722,8 @@
   {
     "usuario_id": "lilibeth_copete",
     "partido_id": 71,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -12091,7 +12731,39 @@
     "usuario_id": "lilibeth_copete",
     "partido_id": 72,
     "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "lilibeth_copete",
+    "partido_id": 73,
+    "goles_local_prono": 2,
     "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "lilibeth_copete",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "lilibeth_copete",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "lilibeth_copete",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -12515,7 +13187,7 @@
     "usuario_id": "luis_moran",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -12523,23 +13195,23 @@
     "usuario_id": "luis_moran",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "luis_moran",
     "partido_id": 55,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "luis_moran",
     "partido_id": 56,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -12593,17 +13265,17 @@
   },
   {
     "usuario_id": "luis_moran",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "luis_moran",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -12659,7 +13331,7 @@
     "usuario_id": "luis_moran",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -12667,7 +13339,39 @@
     "usuario_id": "luis_moran",
     "partido_id": 72,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_moran",
+    "partido_id": 73,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_moran",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_moran",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_moran",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -13090,7 +13794,7 @@
   {
     "usuario_id": "luis_ruiz",
     "partido_id": 53,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -13098,7 +13802,7 @@
   {
     "usuario_id": "luis_ruiz",
     "partido_id": 54,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -13106,7 +13810,7 @@
   {
     "usuario_id": "luis_ruiz",
     "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -13114,7 +13818,7 @@
   {
     "usuario_id": "luis_ruiz",
     "partido_id": 56,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -13169,7 +13873,7 @@
   },
   {
     "usuario_id": "luis_ruiz",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -13177,7 +13881,7 @@
   },
   {
     "usuario_id": "luis_ruiz",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 3,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -13234,6 +13938,14 @@
   {
     "usuario_id": "luis_ruiz",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 4,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_ruiz",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -13241,9 +13953,33 @@
   },
   {
     "usuario_id": "luis_ruiz",
-    "partido_id": 72,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 4,
+    "partido_id": 73,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_ruiz",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_ruiz",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "luis_ruiz",
+    "partido_id": 76,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -13667,7 +14403,7 @@
     "usuario_id": "marcos",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -13675,23 +14411,23 @@
     "usuario_id": "marcos",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "marcos",
     "partido_id": 55,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "marcos",
     "partido_id": 56,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 1,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -13745,7 +14481,7 @@
   },
   {
     "usuario_id": "marcos",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -13753,7 +14489,7 @@
   },
   {
     "usuario_id": "marcos",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 2,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -13811,7 +14547,7 @@
     "usuario_id": "marcos",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -13819,7 +14555,39 @@
     "usuario_id": "marcos",
     "partido_id": 72,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "marcos",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "marcos",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "marcos",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "marcos",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -14243,7 +15011,7 @@
     "usuario_id": "maribel_sanchez",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -14251,14 +15019,14 @@
     "usuario_id": "maribel_sanchez",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "maribel_sanchez",
     "partido_id": 55,
-    "goles_local_prono": 1,
+    "goles_local_prono": 2,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -14266,7 +15034,7 @@
   {
     "usuario_id": "maribel_sanchez",
     "partido_id": 56,
-    "goles_local_prono": 2,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -14321,7 +15089,7 @@
   },
   {
     "usuario_id": "maribel_sanchez",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 2,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -14329,7 +15097,7 @@
   },
   {
     "usuario_id": "maribel_sanchez",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 2,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
@@ -14386,7 +15154,7 @@
   {
     "usuario_id": "maribel_sanchez",
     "partido_id": 71,
-    "goles_local_prono": 2,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -14394,8 +15162,40 @@
   {
     "usuario_id": "maribel_sanchez",
     "partido_id": 72,
-    "goles_local_prono": 0,
+    "goles_local_prono": 2,
     "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "maribel_sanchez",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "maribel_sanchez",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "maribel_sanchez",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "maribel_sanchez",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -14571,15 +15371,15 @@
     "usuario_id": "milenio",
     "partido_id": 22,
     "goles_local_prono": 2,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "milenio",
     "partido_id": 23,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 0,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -14818,16 +15618,16 @@
   {
     "usuario_id": "milenio",
     "partido_id": 53,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "milenio",
     "partido_id": 54,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -14897,17 +15697,17 @@
   },
   {
     "usuario_id": "milenio",
-    "partido_id": 64,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 0,
+    "partido_id": 63,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 4,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "milenio",
-    "partido_id": 63,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 4,
+    "partido_id": 64,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -14962,6 +15762,14 @@
   {
     "usuario_id": "milenio",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "milenio",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -14969,8 +15777,32 @@
   },
   {
     "usuario_id": "milenio",
-    "partido_id": 72,
-    "goles_local_prono": 0,
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "milenio",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "milenio",
+    "partido_id": 75,
+    "goles_local_prono": 4,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "milenio",
+    "partido_id": 76,
+    "goles_local_prono": 3,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -15394,14 +16226,6 @@
   {
     "usuario_id": "oliver_bulk1",
     "partido_id": 53,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
-    "puntos_ganados": 0,
-    "procesado": false
-  },
-  {
-    "usuario_id": "oliver_bulk1",
-    "partido_id": 54,
     "goles_local_prono": 2,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -15409,8 +16233,16 @@
   },
   {
     "usuario_id": "oliver_bulk1",
+    "partido_id": 54,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "oliver_bulk1",
     "partido_id": 55,
-    "goles_local_prono": 0,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -15418,7 +16250,7 @@
   {
     "usuario_id": "oliver_bulk1",
     "partido_id": 56,
-    "goles_local_prono": 1,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
@@ -15473,7 +16305,7 @@
   },
   {
     "usuario_id": "oliver_bulk1",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -15481,7 +16313,7 @@
   },
   {
     "usuario_id": "oliver_bulk1",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 3,
     "puntos_ganados": 0,
@@ -15539,7 +16371,7 @@
     "usuario_id": "oliver_bulk1",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 4,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -15547,7 +16379,39 @@
     "usuario_id": "oliver_bulk1",
     "partido_id": 72,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 4,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "oliver_bulk1",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "oliver_bulk1",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "oliver_bulk1",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "oliver_bulk1",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -15971,7 +16835,7 @@
     "usuario_id": "pablo_rodriguez",
     "partido_id": 53,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -15979,7 +16843,7 @@
     "usuario_id": "pablo_rodriguez",
     "partido_id": 54,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -16049,7 +16913,7 @@
   },
   {
     "usuario_id": "pablo_rodriguez",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -16057,7 +16921,7 @@
   },
   {
     "usuario_id": "pablo_rodriguez",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -16115,7 +16979,7 @@
     "usuario_id": "pablo_rodriguez",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -16123,7 +16987,39 @@
     "usuario_id": "pablo_rodriguez",
     "partido_id": 72,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "pablo_rodriguez",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "pablo_rodriguez",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "pablo_rodriguez",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "pablo_rodriguez",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -16547,7 +17443,7 @@
     "usuario_id": "reynaldo_robinson",
     "partido_id": 53,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -16555,23 +17451,23 @@
     "usuario_id": "reynaldo_robinson",
     "partido_id": 54,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "reynaldo_robinson",
     "partido_id": 55,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 0,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "reynaldo_robinson",
     "partido_id": 56,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 1,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -16625,7 +17521,7 @@
   },
   {
     "usuario_id": "reynaldo_robinson",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 3,
     "goles_visitante_prono": 1,
     "puntos_ganados": 0,
@@ -16633,7 +17529,7 @@
   },
   {
     "usuario_id": "reynaldo_robinson",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 0,
     "puntos_ganados": 0,
@@ -16690,6 +17586,14 @@
   {
     "usuario_id": "reynaldo_robinson",
     "partido_id": 71,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "reynaldo_robinson",
+    "partido_id": 72,
     "goles_local_prono": 1,
     "goles_visitante_prono": 0,
     "puntos_ganados": 0,
@@ -16697,9 +17601,33 @@
   },
   {
     "usuario_id": "reynaldo_robinson",
-    "partido_id": 72,
-    "goles_local_prono": 0,
+    "partido_id": 73,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "reynaldo_robinson",
+    "partido_id": 74,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "reynaldo_robinson",
+    "partido_id": 75,
+    "goles_local_prono": 4,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "reynaldo_robinson",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 0,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -17122,6 +18050,14 @@
   {
     "usuario_id": "wottmar",
     "partido_id": 53,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "wottmar",
+    "partido_id": 54,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -17129,25 +18065,17 @@
   },
   {
     "usuario_id": "wottmar",
-    "partido_id": 54,
+    "partido_id": 55,
     "goles_local_prono": 2,
     "goles_visitante_prono": 3,
-    "puntos_ganados": 0,
-    "procesado": false
-  },
-  {
-    "usuario_id": "wottmar",
-    "partido_id": 55,
-    "goles_local_prono": 1,
-    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "wottmar",
     "partido_id": 56,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 3,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -17201,7 +18129,7 @@
   },
   {
     "usuario_id": "wottmar",
-    "partido_id": 64,
+    "partido_id": 63,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -17209,7 +18137,7 @@
   },
   {
     "usuario_id": "wottmar",
-    "partido_id": 63,
+    "partido_id": 64,
     "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
@@ -17266,7 +18194,7 @@
   {
     "usuario_id": "wottmar",
     "partido_id": 71,
-    "goles_local_prono": 2,
+    "goles_local_prono": 0,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -17274,8 +18202,40 @@
   {
     "usuario_id": "wottmar",
     "partido_id": 72,
-    "goles_local_prono": 0,
+    "goles_local_prono": 2,
     "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "wottmar",
+    "partido_id": 73,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 3,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "wottmar",
+    "partido_id": 74,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "wottmar",
+    "partido_id": 75,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "wottmar",
+    "partido_id": 76,
+    "goles_local_prono": 1,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -17698,7 +18658,7 @@
   {
     "usuario_id": "yan_el_mercaderista",
     "partido_id": 53,
-    "goles_local_prono": 1,
+    "goles_local_prono": 2,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -17706,7 +18666,7 @@
   {
     "usuario_id": "yan_el_mercaderista",
     "partido_id": 54,
-    "goles_local_prono": 2,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
@@ -17715,7 +18675,7 @@
     "usuario_id": "yan_el_mercaderista",
     "partido_id": 55,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 2,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -17723,7 +18683,7 @@
     "usuario_id": "yan_el_mercaderista",
     "partido_id": 56,
     "goles_local_prono": 1,
-    "goles_visitante_prono": 3,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -17777,17 +18737,17 @@
   },
   {
     "usuario_id": "yan_el_mercaderista",
-    "partido_id": 64,
-    "goles_local_prono": 0,
-    "goles_visitante_prono": 1,
+    "partido_id": 63,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 3,
     "puntos_ganados": 0,
     "procesado": false
   },
   {
     "usuario_id": "yan_el_mercaderista",
-    "partido_id": 63,
-    "goles_local_prono": 2,
-    "goles_visitante_prono": 3,
+    "partido_id": 64,
+    "goles_local_prono": 0,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -17843,7 +18803,7 @@
     "usuario_id": "yan_el_mercaderista",
     "partido_id": 71,
     "goles_local_prono": 0,
-    "goles_visitante_prono": 0,
+    "goles_visitante_prono": 2,
     "puntos_ganados": 0,
     "procesado": false
   },
@@ -17851,7 +18811,39 @@
     "usuario_id": "yan_el_mercaderista",
     "partido_id": 72,
     "goles_local_prono": 0,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "yan_el_mercaderista",
+    "partido_id": 73,
+    "goles_local_prono": 1,
     "goles_visitante_prono": 2,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "yan_el_mercaderista",
+    "partido_id": 74,
+    "goles_local_prono": 3,
+    "goles_visitante_prono": 1,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "yan_el_mercaderista",
+    "partido_id": 75,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 0,
+    "puntos_ganados": 0,
+    "procesado": false
+  },
+  {
+    "usuario_id": "yan_el_mercaderista",
+    "partido_id": 76,
+    "goles_local_prono": 2,
+    "goles_visitante_prono": 1,
     "puntos_ganados": 0,
     "procesado": false
   }
