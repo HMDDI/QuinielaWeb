@@ -6,7 +6,7 @@ import {
 } from 'firebase/firestore';
 import { getAuth, signInAnonymously } from 'firebase/auth';
 
-// 1. Configuración de Firebase (Se asume inyectada en el entorno, o pega la tuya aquí)
+// Configuración de Firebase (Se asume inyectada en el entorno, o pega la tuya aquí)
 const firebaseConfig = {
   apiKey: "AIzaSyBfl4KjCjacixbErImt8PkI72GpI2J_1EU",
   authDomain: "quiniela-worldcup-43262.firebaseapp.com",
